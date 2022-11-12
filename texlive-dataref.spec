@@ -1,12 +1,12 @@
 Name:		texlive-dataref
-Version:	0.6
-Release:	2
+Version:	62942
+Release:	1
 Summary:	Manage references to experimental data
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/dataref
 License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -19,12 +19,12 @@ as the project proceeds (and hence the project report
 develops).
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -33,7 +33,7 @@ develops).
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
