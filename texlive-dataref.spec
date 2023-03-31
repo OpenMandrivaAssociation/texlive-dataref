@@ -1,6 +1,6 @@
 Name:		texlive-dataref
 Version:	62942
-Release:	1
+Release:	2
 Summary:	Manage references to experimental data
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/dataref
