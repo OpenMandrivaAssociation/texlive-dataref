@@ -3,7 +3,7 @@ Version:	62942
 Release:	2
 Summary:	Manage references to experimental data
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/dataref
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/dataref
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.doc.r%{version}.tar.xz
