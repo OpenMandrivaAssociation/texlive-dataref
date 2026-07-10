@@ -1,42 +1,24 @@
-Name:		texlive-dataref
-Version:	62942
-Release:	2
+%global tl_name dataref
+%global tl_revision 62942
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.7
+Release:	%{tl_revision}.1
 Summary:	Manage references to experimental data
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/dataref
-License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.doc.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/dataref.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides a mechanism that maintains a fixed
-symbolic reference to numerical results; such results may vary
-as the project proceeds (and hence the project report
-develops).
+The package provides a mechanism that maintains a fixed symbolic
+reference to numerical results; such results may vary as the project
+proceeds (and hence the project report develops).
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/dataref
-%doc %{_texmfdistdir}/doc/latex/dataref
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
